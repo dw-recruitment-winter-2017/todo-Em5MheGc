@@ -6,7 +6,7 @@
             [ring.util.response :as ring]))
 
 (defn index []
-  (view/index (model/all)))
+  (view/index (model/read-all)))
 
 (defn create
   [task]
