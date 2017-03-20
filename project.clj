@@ -5,14 +5,19 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[compojure "1.6.0-beta3"]
                  [org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.473"
+                  :scope "provided"]
                  [org.clojure/java.jdbc "0.7.0-alpha2"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [reagent "0.6.1"]
+                 [reagent-utils "0.2.0"]
                  [ring/ring-defaults "0.2.3"]
-                 [ring/ring-jetty-adapter "1.6.0-RC1"]]
+                 [ring/ring-jetty-adapter "1.6.0-RC1"]
+                 [secretary "1.2.3"]]
   :main ^:skip-aot clojure_todos.web
   :uberjar-name "clojure_todos-standalone.jar"
-  :plugins [[lein-ring "0.11.0"]]
+  :plugins [[lein-cljsbuild "1.1.1"]
+            [lein-ring "0.11.0"]]
   :ring {:handler clojure_todos.web/application
          :init clojure_todos.models.migration/migrate}
   :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
